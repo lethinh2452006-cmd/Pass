@@ -1,4 +1,4 @@
-package com.thinh.pas.domain;
+package com.thinh.pas.domain.entities;
 
 
 import jakarta.persistence.Column;
@@ -18,7 +18,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class users {
 
     @Id

@@ -1,4 +1,4 @@
-package com.thinh.pas.domain;
+package com.thinh.pas.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

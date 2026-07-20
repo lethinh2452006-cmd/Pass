@@ -1,4 +1,4 @@
-package com.thinh.pas.domain;
+package com.thinh.pas.domain.entities;
 
 
 import jakarta.persistence.*;
@@ -8,29 +8,31 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "category")
+@Table(name = "carts")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class category {
+public class cart {
     @Id
+    @Column(name = "id", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "users_id")
+    private users users_id;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        category category = (category) o;
-        return Objects.equals(id, category.id) && Objects.equals(name, category.name);
+        cart cart = (cart) o;
+        return Objects.equals(id, cart.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hashCode(id);
     }
 }

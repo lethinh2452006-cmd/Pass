@@ -1,8 +1,9 @@
-package com.thinh.pas.domain;
+package com.thinh.pas.domain.entities;
 
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
@@ -42,6 +43,7 @@ public class cakes {
     @Column(name = "image")
     private String image;
 
+    @CreatedDate
     @Column(name = "created_at",updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
