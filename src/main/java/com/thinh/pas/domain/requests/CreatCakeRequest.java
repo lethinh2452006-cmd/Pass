@@ -1,4 +1,4 @@
-package com.thinh.pas.domain;
+package com.thinh.pas.domain.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

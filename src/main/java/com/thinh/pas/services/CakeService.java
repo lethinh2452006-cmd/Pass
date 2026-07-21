@@ -1,6 +1,6 @@
 package com.thinh.pas.services;
 
-import com.thinh.pas.domain.CreatCakeRequest;
+import com.thinh.pas.domain.requests.CreatCakeRequest;
 import com.thinh.pas.domain.entities.cakes;
 
 import java.util.UUID;
