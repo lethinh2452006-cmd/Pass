@@ -6,7 +6,7 @@ import com.thinh.pas.domain.entities.users;
 import com.thinh.pas.exceptions.UserNotFoundException;
 import com.thinh.pas.repositories.CakeRepository;
 import com.thinh.pas.repositories.UserRepository;
-import com.thinh.pas.services.CakeService;
+import com.thinh.pas.services.usecase.UsecaseCreatCakeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CakeServiceImpl implements CakeService {
+public class CreatCakeServiceImpl implements UsecaseCreatCakeService {
 
     private final UserRepository userRepository;
     private final CakeRepository cakeRepository;
