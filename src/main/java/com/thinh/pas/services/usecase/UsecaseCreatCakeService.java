@@ -1,4 +1,4 @@
-package com.thinh.pas.services;
+package com.thinh.pas.services.usecase;
 
 import com.thinh.pas.domain.requests.CreatCakeRequest;
 import com.thinh.pas.domain.entities.cakes;
@@ -6,6 +6,6 @@ import com.thinh.pas.domain.entities.cakes;
 import java.util.UUID;
 
 
-public interface CakeService {
+public interface UsecaseCreatCakeService {
     cakes CreatCakeServive(UUID user_id ,CreatCakeRequest cakeRequest);
 }
