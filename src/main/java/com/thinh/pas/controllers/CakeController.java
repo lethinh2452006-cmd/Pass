@@ -1,10 +1,7 @@
 package com.thinh.pas.controllers;
 
 
-import com.thinh.pas.domain.dtos.CreatCakeReponseDto;
-import com.thinh.pas.domain.dtos.CreatCakeRequestDto;
-import com.thinh.pas.domain.dtos.GetCakeReponseDto;
-import com.thinh.pas.domain.dtos.GetCakeRequestDto;
+import com.thinh.pas.domain.dtos.*;
 import com.thinh.pas.domain.entities.cakes;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.CreatCakeRequest;
@@ -12,12 +9,14 @@ import com.thinh.pas.domain.requests.GetCakeRequest;
 import com.thinh.pas.mapper.CakeMapper;
 import com.thinh.pas.services.usecase.UsecaseCreatCakeService;
 import com.thinh.pas.services.usecase.UsecaseGetCakeService;
+import com.thinh.pas.services.usecase.UsecaseUpdateCakeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -31,6 +30,7 @@ public class CakeController {
     private final CakeMapper cakeMapper;
     private final UsecaseCreatCakeService cakeService;
     private final UsecaseGetCakeService getCakeService;
+    private final UsecaseUpdateCakeService updateCakeService;
 
     @PostMapping
     public ResponseEntity<CreatCakeReponseDto> CreatCake(
@@ -61,5 +61,16 @@ public class CakeController {
 
         GetCakeReponseDto getCakeRequestDto1 = cakeMapper.toDto(getCakeReponse);
         return ResponseEntity.status(HttpStatus.OK).body(getCakeRequestDto1);
+    }
+
+    @PutMapping(value = "/{cake_id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UpdateCakeReponseDto> UpdateCake(
+            @AuthenticationPrincipal Jwt jwt,
+            @PathVariable("cake_id") UUID cake_id,
+            @RequestBody @Valid UpdateCakeRequestDto updatecakerequestdto
+    ){
+        UUID user_id = UUID.fromString(jwt.getSubject());
+        return ResponseEntity.status(HttpStatus.OK).body(updateCakeService.UpdateCakeService(user_id,cake_id,updatecakerequestdto));
     }
 }

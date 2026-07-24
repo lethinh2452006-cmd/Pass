@@ -1,14 +1,12 @@
 package com.thinh.pas.mapper;
 
 
-import com.thinh.pas.domain.dtos.CreatCakeReponseDto;
-import com.thinh.pas.domain.dtos.CreatCakeRequestDto;
-import com.thinh.pas.domain.dtos.GetCakeReponseDto;
-import com.thinh.pas.domain.dtos.GetCakeRequestDto;
+import com.thinh.pas.domain.dtos.*;
 import com.thinh.pas.domain.entities.cakes;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.CreatCakeRequest;
 import com.thinh.pas.domain.requests.GetCakeRequest;
+import com.thinh.pas.domain.requests.UpdateCakeRequest;
 import jakarta.validation.Valid;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -23,4 +21,8 @@ public interface CakeMapper {
     GetCakeRequest fromDto(@Valid GetCakeRequestDto getCakeRequestDto);
 
     GetCakeReponseDto toDto(GetCakeReponse getCakeReponse);
+
+    UpdateCakeRequest fromDto(@Valid UpdateCakeRequestDto updateCakeRequestDto);
+
+    UpdateCakeReponseDto toUpdateReponse(cakes cake);
 }

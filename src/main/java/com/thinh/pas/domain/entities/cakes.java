@@ -54,4 +54,10 @@ public class cakes {
     @Column(name = "deletedat",updatable = false)
     private LocalDateTime deletedAt;
 
+
+    public void update(String namecake,String description, String image){
+        this.namecake = namecake;
+        this.description = description;
+        this.image = image;
+    }
 }
