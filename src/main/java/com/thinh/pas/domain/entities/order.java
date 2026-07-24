@@ -45,15 +45,15 @@ public class order {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         order order = (order) o;
-        return Objects.equals(id, order.id) && Objects.equals(receiverphone, order.receiverphone) && Objects.equals(shippingaddress, order.shippingaddress) && Objects.equals(totalamount, order.totalamount) && Objects.equals(createdAt, order.createdAt) && Objects.equals(updatedAt, order.updatedAt) && Objects.equals(deletedAt, order.deletedAt);
+        return Objects.equals(id, order.id) && Objects.equals(receiverphone, order.receiverphone) && Objects.equals(shippingaddress, order.shippingaddress) && Objects.equals(totalamount, order.totalamount) && Objects.equals(createdAt, order.createdAt) && Objects.equals(updatedAt, order.updatedAt) && Objects.equals(deleted, order.deleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, receiverphone, shippingaddress, totalamount, createdAt, updatedAt, deletedAt);
+        return Objects.hash(id, receiverphone, shippingaddress, totalamount, createdAt, updatedAt, deleted);
     }
 
-    @Column(name = "deletedat",updatable = false)
-    private LocalDateTime deletedAt;
+    @Column(name = "deletedat")
+    private boolean deleted;
 
 }

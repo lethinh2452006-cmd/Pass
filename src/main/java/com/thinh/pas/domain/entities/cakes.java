@@ -29,12 +29,12 @@ public class cakes {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         cakes cakes = (cakes) o;
-        return Objects.equals(id, cakes.id) && Objects.equals(namecake, cakes.namecake) && Objects.equals(description, cakes.description) && Objects.equals(image, cakes.image) && Objects.equals(createdAt, cakes.createdAt) && Objects.equals(updatedAt, cakes.updatedAt) && Objects.equals(deletedAt, cakes.deletedAt);
+        return Objects.equals(id, cakes.id) && Objects.equals(namecake, cakes.namecake) && Objects.equals(description, cakes.description) && Objects.equals(image, cakes.image) && Objects.equals(createdAt, cakes.createdAt) && Objects.equals(updatedAt, cakes.updatedAt) && Objects.equals(deleted, cakes.deleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, namecake, description, image, createdAt, updatedAt, deletedAt);
+        return Objects.hash(id, namecake, description, image, createdAt, updatedAt, deleted);
     }
 
     @Column(name = "description")
@@ -51,13 +51,17 @@ public class cakes {
     @Column(name = "update_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @Column(name = "deletedat",updatable = false)
-    private LocalDateTime deletedAt;
+    @Column(name = "deletedat")
+    private boolean deleted;
 
 
     public void update(String namecake,String description, String image){
         this.namecake = namecake;
         this.description = description;
         this.image = image;
+    }
+
+    public void deleted(boolean deleted){
+        this.deleted = deleted;
     }
 }

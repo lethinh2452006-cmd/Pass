@@ -7,9 +7,12 @@ import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.CreatCakeRequest;
 import com.thinh.pas.domain.requests.GetCakeRequest;
 import com.thinh.pas.mapper.CakeMapper;
+import com.thinh.pas.domain.reponse.DeleteCakeReponse;
+import com.thinh.pas.domain.requests.DeleteCakeRequest;
 import com.thinh.pas.services.usecase.UsecaseCreatCakeService;
 import com.thinh.pas.services.usecase.UsecaseGetCakeService;
 import com.thinh.pas.services.usecase.UsecaseUpdateCakeService;
+import com.thinh.pas.services.usecase.UsecaseDeleteCakeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,6 +34,7 @@ public class CakeController {
     private final UsecaseCreatCakeService cakeService;
     private final UsecaseGetCakeService getCakeService;
     private final UsecaseUpdateCakeService updateCakeService;
+    private final UsecaseDeleteCakeService deleteCakeService;
 
     @PostMapping
     public ResponseEntity<CreatCakeReponseDto> CreatCake(
@@ -72,5 +76,18 @@ public class CakeController {
     ){
         UUID user_id = UUID.fromString(jwt.getSubject());
         return ResponseEntity.status(HttpStatus.OK).body(updateCakeService.UpdateCakeService(user_id,cake_id,updatecakerequestdto));
+    }
+
+    @DeleteMapping(value = "/{cake_id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<DeleteCakeReponseDto> DeleteCake(
+            @AuthenticationPrincipal Jwt jwt,
+            @PathVariable("cake_id") UUID cake_id
+    ){
+        UUID user_id = UUID.fromString(jwt.getSubject());
+        DeleteCakeRequest deleteCakeRequest = new DeleteCakeRequest(cake_id);
+        DeleteCakeReponse deleteCakeReponse = deleteCakeService.DeleteCakeService(user_id, deleteCakeRequest);
+        DeleteCakeReponseDto deleteCakeReponseDto = cakeMapper.toDto(deleteCakeReponse);
+        return ResponseEntity.status(HttpStatus.OK).body(deleteCakeReponseDto);
     }
 }
