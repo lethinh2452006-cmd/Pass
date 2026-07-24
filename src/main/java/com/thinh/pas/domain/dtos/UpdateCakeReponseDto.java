@@ -16,5 +16,5 @@ public class UpdateCakeReponseDto {
         private String image;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
-        private LocalDateTime deletedAt;
+        private boolean deleted;
 }
