@@ -3,8 +3,11 @@ package com.thinh.pas.mapper;
 
 import com.thinh.pas.domain.dtos.*;
 import com.thinh.pas.domain.entities.cakes;
+import com.thinh.pas.domain.reponse.GetAllCakeReponse;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
+import com.thinh.pas.domain.reponse.DeleteCakeReponse;
 import com.thinh.pas.domain.requests.CreatCakeRequest;
+import com.thinh.pas.domain.requests.GetAllCakeRequest;
 import com.thinh.pas.domain.requests.GetCakeRequest;
 import com.thinh.pas.domain.requests.UpdateCakeRequest;
 import jakarta.validation.Valid;
@@ -25,4 +28,10 @@ public interface CakeMapper {
     UpdateCakeRequest fromDto(@Valid UpdateCakeRequestDto updateCakeRequestDto);
 
     UpdateCakeReponseDto toUpdateReponse(cakes cake);
+
+    DeleteCakeReponseDto toDto(DeleteCakeReponse deleteCakeReponse);
+
+    GetAllCakeReponseDto toGetAllCakeReponseDto(GetAllCakeReponse getAllCakeReponse);
+
+    GetAllCakeRequest toGetAllCakeRequest(GetAllCakeRequestDto getAllCakeRequestDto);
 }

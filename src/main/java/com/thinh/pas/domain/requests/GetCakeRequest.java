@@ -10,5 +10,5 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GetCakeRequest {
-    UUID cake_id;
+    private UUID cake_id;
 }
