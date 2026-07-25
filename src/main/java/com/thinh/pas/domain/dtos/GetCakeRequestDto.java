@@ -11,5 +11,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetCakeRequestDto {
-    UUID cake_id;
+    private UUID cake_id;
 }
