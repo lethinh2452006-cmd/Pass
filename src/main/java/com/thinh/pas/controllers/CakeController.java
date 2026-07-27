@@ -10,16 +10,14 @@ import com.thinh.pas.domain.requests.GetCakeRequest;
 import com.thinh.pas.mapper.CakeMapper;
 import com.thinh.pas.domain.reponse.DeleteCakeReponse;
 import com.thinh.pas.domain.requests.DeleteCakeRequest;
-import com.thinh.pas.services.usecase.UsecaseCreatCakeService;
-import com.thinh.pas.services.usecase.UsecaseGetCakeService;
-import com.thinh.pas.services.usecase.UsecaseUpdateCakeService;
-import com.thinh.pas.services.usecase.UsecaseDeleteCakeService;
+import com.thinh.pas.services.usecase.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +40,7 @@ public class CakeController {
     private final UsecaseGetCakeService getCakeService;
     private final UsecaseUpdateCakeService updateCakeService;
     private final UsecaseDeleteCakeService deleteCakeService;
+    private final UsecaseGetAllCakeService getAllCakeService;
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
@@ -105,6 +104,6 @@ public class CakeController {
     ){
         GetAllCakeRequest getAllCakeRequest = cakeMapper.toGetAllCakeRequest(getAllCakeRequestDto);
 
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(getAllCakeService.GetAllCake(getAllCakeRequest));
     }
 }
