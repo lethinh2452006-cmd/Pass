@@ -39,14 +39,14 @@ public class GetAllCakeServiceImpl implements UsecaseGetAllCakeService {
                 ? Sort.Direction.ASC
                 : Sort.Direction.DESC;
 
-        Pageable pageable = PageRequest.of(getAllCakeRequest.getPage(),
+        Pageable pageable = PageRequest.of(getAllCakeRequest.getPage() - 1,
                 getAllCakeRequest.getLimit(),
                 Sort.by(direction, sortByField)
         );
-        List<GetCakeReponse> listcakes =  cakeRepository.findAll(specification,pageable);
+        Page<cakes> listcakes =  cakeRepository.findAll(specification,pageable);
         int Reponsepage = getAllCakeRequest.getPage() + 1;
         GetAllCakeReponse getAllCakeReponse = new GetAllCakeReponse();
-        getAllCakeReponse.setGetCakeReponseList(listcakes);
+        getAllCakeReponse.setGetCakeReponsePage(listcakes);
         getAllCakeReponse.setPage_index(Reponsepage);
 
         return cakeMapper.toGetAllCakeReponseDto(getAllCakeReponse);
