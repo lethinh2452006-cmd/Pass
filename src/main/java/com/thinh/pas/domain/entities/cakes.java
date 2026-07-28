@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -29,12 +30,12 @@ public class cakes {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         cakes cakes = (cakes) o;
-        return Objects.equals(id, cakes.id) && Objects.equals(namecake, cakes.namecake) && Objects.equals(description, cakes.description) && Objects.equals(image, cakes.image) && Objects.equals(createdAt, cakes.createdAt) && Objects.equals(updatedAt, cakes.updatedAt) && Objects.equals(deleted, cakes.deleted);
+        return Objects.equals(id, cakes.id) && Objects.equals(namecake, cakes.namecake)&&  Objects.equals(description, cakes.description) && Objects.equals(image, cakes.image) &&Objects.equals(promotion, cakes.promotion) && Objects.equals(createdAt, cakes.createdAt) && Objects.equals(updatedAt, cakes.updatedAt) && Objects.equals(deleted, cakes.deleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, namecake, description, image, createdAt, updatedAt, deleted);
+        return Objects.hash(id, namecake, description, image, promotion, createdAt, updatedAt, deleted);
     }
 
     @Column(name = "description")
@@ -54,6 +55,14 @@ public class cakes {
     @Column(name = "deletedat")
     private boolean deleted;
 
+    @Column(name = "category_id")
+    private UUID categoryId;
+
+    @OneToMany(mappedBy = "cake_id", fetch = FetchType.LAZY)
+    private List<cakesize> cakeSizes;
+
+    @Column(name = "promotion")
+    private Integer promotion;
 
     public void update(String namecake,String description, String image){
         this.namecake = namecake;

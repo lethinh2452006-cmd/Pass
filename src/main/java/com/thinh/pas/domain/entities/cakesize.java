@@ -23,19 +23,17 @@ public class cakesize {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         cakesize cakesize = (cakesize) o;
-        return Objects.equals(id, cakesize.id) && Objects.equals(price, cakesize.price) && Objects.equals(promotion, cakesize.promotion) && Objects.equals(stock, cakesize.stock) && Objects.equals(size_id, cakesize.size_id);
+        return Objects.equals(id, cakesize.id) && Objects.equals(price, cakesize.price) && Objects.equals(stock, cakesize.stock) && Objects.equals(size_id, cakesize.size_id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, promotion, stock, size_id);
+        return Objects.hash(id, price,  stock, size_id);
     }
 
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "promotion")
-    private Integer promotion;
 
     @Column(name = "stock", nullable = false)
     private Integer stock;
