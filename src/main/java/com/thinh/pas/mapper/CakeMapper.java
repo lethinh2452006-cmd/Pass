@@ -3,6 +3,7 @@ package com.thinh.pas.mapper;
 
 import com.thinh.pas.domain.dtos.*;
 import com.thinh.pas.domain.entities.cakes;
+import com.thinh.pas.domain.entities.cakesize;
 import com.thinh.pas.domain.reponse.GetAllCakeReponse;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.reponse.DeleteCakeReponse;
@@ -12,6 +13,7 @@ import com.thinh.pas.domain.requests.GetCakeRequest;
 import com.thinh.pas.domain.requests.UpdateCakeRequest;
 import jakarta.validation.Valid;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
@@ -31,7 +33,20 @@ public interface CakeMapper {
 
     DeleteCakeReponseDto toDto(DeleteCakeReponse deleteCakeReponse);
 
+
+    @Mapping(source = "getCakeReponsePage.content", target = "getCakeReponseList")
+    @Mapping(source = "getCakeReponsePage.number", target = "pageIndex")
+    @Mapping(source = "getCakeReponsePage.size", target = "pageSize")
+    @Mapping(source = "getCakeReponsePage.totalElements", target = "totalElements")
+    @Mapping(source = "getCakeReponsePage.totalPages", target = "totalPages")
+    @Mapping(source = "getCakeReponsePage.hasNext", target = "hasNext")
     GetAllCakeReponseDto toGetAllCakeReponseDto(GetAllCakeReponse getAllCakeReponse);
 
+    @Mapping(source = "size_id.name", target = "sizeName")
+    CakeSizeResponseDto toCakeSizeResponseDto(cakesize cakesize);
+
     GetAllCakeRequest toGetAllCakeRequest(GetAllCakeRequestDto getAllCakeRequestDto);
+
+    @Mapping(source = "cakeSizes", target = "cakesizes")
+    GetCakeReponse toGetCakeReponse(cakes cake);
 }

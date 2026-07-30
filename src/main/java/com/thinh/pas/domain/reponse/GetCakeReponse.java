@@ -1,6 +1,7 @@
 package com.thinh.pas.domain.reponse;
 
 
+import com.thinh.pas.domain.dtos.CakeSizeResponseDto;
 import com.thinh.pas.domain.entities.cakesize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,5 @@ public class GetCakeReponse {
 
     private Integer promotion;
 
-    private List<cakesize> cakesizes;
+    private List<CakeSizeResponseDto> cakesizes;
 }

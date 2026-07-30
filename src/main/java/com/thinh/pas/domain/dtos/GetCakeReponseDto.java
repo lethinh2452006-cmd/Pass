@@ -20,5 +20,5 @@ public class GetCakeReponseDto {
 
     private Integer promotion;
 
-    private List<cakesize> cakesizes;
+    private List<CakeSizeResponseDto> cakesizes;
 }

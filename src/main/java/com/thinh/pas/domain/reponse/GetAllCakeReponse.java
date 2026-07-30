@@ -13,6 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllCakeReponse {
-    private Page<cakes> getCakeReponsePage;
-    private int page_index;
+    private List<GetCakeReponse> getCakeReponseList;
+    private int pageIndex;
+    private int pageSize;
+    private long totalElements;
+    private int totalPages;
+    private boolean hasNext;
 }
