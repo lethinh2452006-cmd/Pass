@@ -12,5 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 public class GetAllCakeReponseDto {
     private List<GetCakeReponse> getCakeReponseList;
-    private int page_index;
+    private int pageIndex;
+    private int pageSize;
+    private long totalElements;
+    private int totalPages;
+    private boolean hasNext;
 }
