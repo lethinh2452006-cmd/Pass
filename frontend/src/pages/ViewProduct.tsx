@@ -1,8 +1,11 @@
-import React from "react"
+import Header from "@/components/Header";
 
 const ViewProduct = () => {
     return (
-        <div>ViewProducte</div>
+        <div>
+            <Header />
+            <div>View Product Content</div>
+            </div>
     )
 };
 
