@@ -34,12 +34,6 @@ public interface CakeMapper {
     DeleteCakeReponseDto toDto(DeleteCakeReponse deleteCakeReponse);
 
 
-    @Mapping(source = "getCakeReponsePage.content", target = "getCakeReponseList")
-    @Mapping(source = "getCakeReponsePage.number", target = "pageIndex")
-    @Mapping(source = "getCakeReponsePage.size", target = "pageSize")
-    @Mapping(source = "getCakeReponsePage.totalElements", target = "totalElements")
-    @Mapping(source = "getCakeReponsePage.totalPages", target = "totalPages")
-    @Mapping(source = "getCakeReponsePage.hasNext", target = "hasNext")
     GetAllCakeReponseDto toGetAllCakeReponseDto(GetAllCakeReponse getAllCakeReponse);
 
     @Mapping(source = "size_id.name", target = "sizeName")
