@@ -1,7 +1,7 @@
 
 const Header = () => {
   return (
-    <div className="w-full h-20 bg-[#3a2323] text-white px-6 py-4 flex items-center justify-between">
+    <div className="w-full h-20 bg-white text-gray-800 px-6 py-4 flex items-center justify-between">
       {/* Logo */}
       <div className="w-32 h-15 bg-rose-400 rounded-full flex items-center justify-center text-sm font-bold">
       MyLogo
