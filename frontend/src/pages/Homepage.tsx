@@ -1,5 +1,6 @@
 import New from "@/components/New";
 import Header from "../components/Header";
+import Danhmuc from "@/components/Danhmuc";
 
 
 const Homepage = () => {
@@ -12,7 +13,7 @@ const Homepage = () => {
                 <New />
             </div>
             <div>
-                
+                <Danhmuc />
             </div>
         </div>
     )
