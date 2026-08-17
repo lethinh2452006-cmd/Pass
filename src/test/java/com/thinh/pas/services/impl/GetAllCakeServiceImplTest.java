@@ -7,6 +7,7 @@ import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.GetAllCakeRequest;
 import com.thinh.pas.mapper.CakeMapper;
 import com.thinh.pas.repositories.CakeRepository;
+import com.thinh.pas.services.impl.cake.GetAllCakeServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

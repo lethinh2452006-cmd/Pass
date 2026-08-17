@@ -1,4 +1,4 @@
-package com.thinh.pas.services.impl;
+package com.thinh.pas.services.impl.cake;
 
 import com.thinh.pas.domain.dtos.UpdateCakeReponseDto;
 import com.thinh.pas.domain.dtos.UpdateCakeRequestDto;
