@@ -1,3 +1,16 @@
+package com.thinh.pas.controllers;
+
+import com.thinh.pas.domain.dtos.category.GetAllCategoryRespondDto;
+import com.thinh.pas.domain.reponse.category.GetAllCategoryRespond;
+import com.thinh.pas.mapper.CategoryMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.thinh.pas.services.usecase.categoryusecase.UsecaseGetAllCategory;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/api/v1/categories")
@@ -8,10 +21,9 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<GetAllCategoryRespondDto>> GetAllCategories() {
-        List<Category> categories = usecaseGetAllCategory.GetAllCategoryService();
-        List<GetAllCategoryRespondDto> dtos = categories.stream()
-                .map(categoryMapper::toDto)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(dtos);
+        List<GetAllCategoryRespondDto> categoriesList = usecaseGetAllCategory.GetAllCategoryService();
+        return ResponseEntity.ok(categoriesList);
     }
+
+    
 }

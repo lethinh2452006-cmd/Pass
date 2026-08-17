@@ -1,4 +1,4 @@
-package com.thinh.pas.services.impl;
+package com.thinh.pas.services.impl.cake;
 
 import com.thinh.pas.domain.entities.cakes;
 import com.thinh.pas.domain.entities.cakesize;

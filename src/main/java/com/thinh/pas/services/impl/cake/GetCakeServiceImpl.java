@@ -1,7 +1,6 @@
-package com.thinh.pas.services.impl;
+package com.thinh.pas.services.impl.cake;
 
 import com.thinh.pas.domain.entities.cakes;
-import com.thinh.pas.domain.entities.cakesize;
 import com.thinh.pas.domain.entities.users;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.GetCakeRequest;
@@ -10,11 +9,9 @@ import com.thinh.pas.exceptions.UserNotFoundException;
 import com.thinh.pas.repositories.CakeRepository;
 import com.thinh.pas.repositories.UserRepository;
 import com.thinh.pas.services.usecase.UsecaseGetCakeService;
-import jakarta.persistence.criteria.Join;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service

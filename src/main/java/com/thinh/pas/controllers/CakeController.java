@@ -2,6 +2,14 @@ package com.thinh.pas.controllers;
 
 
 import com.thinh.pas.domain.dtos.*;
+import com.thinh.pas.domain.dtos.CreatCakeReponseDto;
+import com.thinh.pas.domain.dtos.CreatCakeRequestDto;
+import com.thinh.pas.domain.dtos.DeleteCakeReponseDto;
+import com.thinh.pas.domain.dtos.GetAllCakeReponseDto;
+import com.thinh.pas.domain.dtos.GetAllCakeRequestDto;
+import com.thinh.pas.domain.dtos.GetCakeReponseDto;
+import com.thinh.pas.domain.dtos.UpdateCakeReponseDto;
+import com.thinh.pas.domain.dtos.UpdateCakeRequestDto;
 import com.thinh.pas.domain.entities.cakes;
 import com.thinh.pas.domain.reponse.GetCakeReponse;
 import com.thinh.pas.domain.requests.CreatCakeRequest;
@@ -11,6 +19,11 @@ import com.thinh.pas.mapper.CakeMapper;
 import com.thinh.pas.domain.reponse.DeleteCakeReponse;
 import com.thinh.pas.domain.requests.DeleteCakeRequest;
 import com.thinh.pas.services.usecase.*;
+import com.thinh.pas.services.usecase.UsecaseCreatCakeService;
+import com.thinh.pas.services.usecase.UsecaseDeleteCakeService;
+import com.thinh.pas.services.usecase.UsecaseGetAllCakeService;
+import com.thinh.pas.services.usecase.UsecaseGetCakeService;
+import com.thinh.pas.services.usecase.UsecaseUpdateCakeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
